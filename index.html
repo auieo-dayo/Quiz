@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!--MIT License © 2025 auieo-dayo-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz</title>
+  <script src="main.js"></script>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<main>
+    <h1>クイズ</h1>
+    <h1 id="mondai">読み込み中です</h1>
+    <input type="text" id="text" placeholder="回答">
+    <button id="chkbtn" disabled>確認</button>
+    <button id="openanserbtn" disabled>答えを見る</button>
+    <button id="nextq">問題を変える</button>
+    <button id="googlesearch">Googleで調べる(外部サイトを開きます)</button>
+</main>
+<p id="seikaifuseikai">回答をどうぞ</p>
+<div style="text-align: center;width: 100%;"><img id="image" style="width: 40vw;" src="default.png"></div>
+<footer >
+  <p>&copy; 2025 auieo-dayo. All rights reserved. </p>
+  <p>今の問題数:<span id="mondaisu"></span></p>
+  <p>今までの正解数:<span id="seikaisu"></span></p>
+  <button id="datareset">データをすべてリセット</button>
+</footer>
+</body>
+</html>
