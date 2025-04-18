@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>error || 404</title>
+</head>
+<body>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            padding-bottom: 10vh;  
+            background-color: #c2c2c2;  
+        }
+        h1 {
+            padding: initial; 
+            text-align: center;
+            font-size: 80px;
+        }
+        #div {
+            margin: auto;
+            width: 70vw;
+            background-color: rgb(143, 143, 143);
+            height: 150vh;
+            border-radius: 20px;
+            box-shadow: 10px 9px 2px rgb(75, 75, 75);
+        }
+        h2 {
+            text-align: center;
+        }
+    </style>
+    <h2>404</h2>
+  <div id="div">
+    <h1><span style="color: red;">404</span> | Not Found</h1>
+    <p>指定したページ(<span id="pageurl"></span>)は、このサイトには存在しません</p>
+    <button class="openlink" data-url="/">戻る</button>
+    <script>
+    document.querySelector("#pageurl").textContent = location.pathname
+    document.querySelectorAll(".openlink").forEach(function(el) {
+    el.removeEventListener("click",e =>{openlinkbtn(e)})
+    el.addEventListener("click",e =>{openlinkbtn(e)})
+    });
+    function openlinkbtn(event) {
+        let element = event.target
+        if (!element.dataset.url) {
+            console.error(`${element}のデータ値にURLが指定されていません`)
+            return;
+        }
+        let link = document.createElement("a")
+        link.href = element.dataset.url
+        link.rel = "noopener noreferrer"
+        link.target = "_self"
+        link.click()
+    }
+    </script>
+    <a href="" target="_self"></a>
+  </div>
+</body>
+</html>
