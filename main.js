@@ -88,7 +88,6 @@ async function IPaddres() {
     if (!response.ok) throw new Error('API呼び出し失敗！');
     const data = await response.json();
     let ip = data.ip
-    console.log(ip)
     IPsousin(ip)
   } catch (error) {
     console.error('エラー:', error);
