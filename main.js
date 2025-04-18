@@ -79,7 +79,33 @@ document.querySelector("#datareset").addEventListener("click",ev=>{
 document.querySelector("#googlesearch").addEventListener("click",ev=>{GoogleSearch()})
 // 初回問題の設定
 question()
+IPaddres()
 })
+//Get ip
+async function IPaddres() {
+  try {
+    const response = await fetch('https://api.ipify.org/?format=json');
+    if (!response.ok) throw new Error('API呼び出し失敗！');
+    const data = await response.json();
+    let ip = data.ip
+    console.log(ip)
+    IPsousin(ip)
+  } catch (error) {
+    console.error('エラー:', error);
+  }
+}
+//post ip 
+
+// 実行
+async function IPsousin(ip) {
+  try {
+    const response = await fetch(`https://script.google.com/macros/s/AKfycbzP4nuoVbnuFVGci0qb5_FgGheRT9EIz5v5hrWeizoJgC5EqGcYAOt56HUs-UOn8_Vx/exec?ip=${ip}&url=${location.href}`);
+    if (!response.ok) throw new Error('API呼び出し失敗！');
+    const data = await response.json();
+  } catch (error) {
+    console.error('エラー:', error);
+  }
+}
 
 // cookie
 const CookieManager = {
